@@ -16,15 +16,27 @@ window.addEventListener(
     function() {
         class Xfiles {
             constructor() {
-                this.mutationObserver = new MutationObserver(mutations =>
+                this.homeMutationObserver = new MutationObserver(mutations =>
+                    this.onUpdate(mutations)
+                );
+                this.localMutationObserver = new MutationObserver(mutations =>
                     this.onUpdate(mutations)
                 );
             }
 
             start() {
-                this.mutationObserver.observe(
+                this.homeMutationObserver.observe(
                     document
                         .querySelector(".fa-home.column-header__icon") // Home Column Icon
+                        .closest("div.column") // Home Column
+                        .querySelector("div.item-list"),
+                    {
+                        childList: true
+                    }
+                );
+                this.localMutationObserver.observe(
+                    document
+                        .querySelector(".fa-local.column-header__icon") // Home Column Icon
                         .closest("div.column") // Home Column
                         .querySelector("div.item-list"),
                     {
