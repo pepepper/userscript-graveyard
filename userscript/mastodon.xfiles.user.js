@@ -36,8 +36,8 @@ window.addEventListener(
                 );
                 this.localMutationObserver.observe(
                     document
-                        .querySelector(".fa-users.column-header__icon") // Home Column Icon
-                        .closest("div.column") // Home Column
+                        .querySelector(".fa-users.column-header__icon") // Local Column Icon
+                        .closest("div.column") // Local Column
                         .querySelector("div.item-list"),
                     {
                         childList: true
