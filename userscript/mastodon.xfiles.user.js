@@ -27,7 +27,7 @@ window.addEventListener(
             start() {
                 this.homeMutationObserver.observe(
                     document
-                        .querySelector(".fa-home.column-header__icon") // Home Column Icon
+                        .querySelector(".fa-users.column-header__icon") // Home Column Icon
                         .closest("div.column") // Home Column
                         .querySelector("div.item-list"),
                     {
