@@ -4,7 +4,7 @@
 // @description  :thinking_face:
 // @author       Eai <eai@mizle.net>
 // @license      MIT
-// @version      1.1.1
+// @version      1.1.2
 
 // @include      https://*/web/*
 // ==/UserScript==
@@ -16,16 +16,13 @@ window.addEventListener(
     function() {
         class Xfiles {
             constructor() {
-                this.homeMutationObserver = new MutationObserver(mutations =>
-                    this.onUpdate(mutations)
-                );
-                this.localMutationObserver = new MutationObserver(mutations =>
+                this.mutationObserver = new MutationObserver(mutations =>
                     this.onUpdate(mutations)
                 );
             }
 
             start() {
-                this.homeMutationObserver.observe(
+                this.mutationObserver.observe(
                     document
                         .querySelector(".fa-home.column-header__icon") // Home Column Icon
                         .closest("div.column") // Home Column
@@ -34,7 +31,7 @@ window.addEventListener(
                         childList: true
                     }
                 );
-                this.localMutationObserver.observe(
+                this.mutationObserver.observe(
                     document
                         .querySelector(".fa-users.column-header__icon") // Local Column Icon
                         .closest("div.column") // Local Column
